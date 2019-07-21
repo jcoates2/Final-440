@@ -144,10 +144,9 @@ int main(void)
 			else if(keys[RIGHT])
 				player.UpdateSprites(WIDTH,HEIGHT,1);
 			
-			//if (player.CollisionEndBlock()) {
-				//cout << "Next Level\n";
-				//levelOver = true;
-			//}
+			if (player.CollisionEndBlock()) {
+				done = true;
+			}
 
 			for (int i = 0; i < NUM_flowers; i++)
 				flowers[i].growFlower(WIDTH, HEIGHT);
@@ -237,7 +236,7 @@ int main(void)
 			for (int i = 0; i < NUM_flowers; i++)
 				flowers[i].drawSprite();
 			//draw timer and score
-			al_draw_textf(hop, al_map_rgb(153,0,153), 20, 430, ALLEGRO_ALIGN_LEFT, "Flower Score: ", player.getScore());
+			al_draw_textf(hop, al_map_rgb(153,0,153), 20, 430, ALLEGRO_ALIGN_LEFT, "Flower Score: %d", player.getScore());
 			al_draw_textf(hop, al_map_rgb(153, 0, 153), WIDTH / 2, 430, ALLEGRO_ALIGN_CENTRE, "You have 60 seconds: %d", (currentTime- startTime));
 			al_flip_display();
 			al_clear_to_color(al_map_rgb(0,0,0));
@@ -252,7 +251,7 @@ int main(void)
 
 	//draw the conclustion
 	al_draw_bitmap(end, WIDTH / 4, 0, 0);
-	al_draw_textf(hop, al_map_rgb(153, 0, 153), 20, 430, ALLEGRO_ALIGN_LEFT, "Final Score: ",player.getScore());
+	al_draw_textf(hop, al_map_rgb(153, 0, 153), 20, 430, ALLEGRO_ALIGN_LEFT, "Final Score: %d",player.getScore());
 	al_flip_display();
 	al_clear_to_color(al_map_rgb(0, 0, 0));
 	al_rest(3);

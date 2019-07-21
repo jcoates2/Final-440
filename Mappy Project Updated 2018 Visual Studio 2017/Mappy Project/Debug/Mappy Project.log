@@ -1,18 +1,2 @@
 ﻿  flower.cpp
-C:\Users\vsjcoates\Documents\Mappy Project Updated 2018 Visual Studio 2017\Mappy Project Updated 2018 Visual Studio 2017\Mappy Project\Sprite.h(9,1): error C2011:  'Sprite': 'class' type redefinition
-C:\Users\vsjcoates\Documents\Mappy Project Updated 2018 Visual Studio 2017\Mappy Project Updated 2018 Visual Studio 2017\Mappy Project\Sprite.h(8): message :  see declaration of 'Sprite'
-C:\Users\vsjcoates\Documents\Mappy Project Updated 2018 Visual Studio 2017\Mappy Project Updated 2018 Visual Studio 2017\Mappy Project\flower.cpp(70,6): error C2027:  use of undefined type 'Sprite'
-C:\Users\vsjcoates\Documents\Mappy Project Updated 2018 Visual Studio 2017\Mappy Project Updated 2018 Visual Studio 2017\Mappy Project\Sprite.h(8): message :  see declaration of 'Sprite'
-C:\Users\vsjcoates\Documents\Mappy Project Updated 2018 Visual Studio 2017\Mappy Project Updated 2018 Visual Studio 2017\Mappy Project\flower.cpp(71,1): error C2027:  use of undefined type 'Sprite'
-C:\Users\vsjcoates\Documents\Mappy Project Updated 2018 Visual Studio 2017\Mappy Project Updated 2018 Visual Studio 2017\Mappy Project\Sprite.h(8): message :  see declaration of 'Sprite'
-C:\Users\vsjcoates\Documents\Mappy Project Updated 2018 Visual Studio 2017\Mappy Project Updated 2018 Visual Studio 2017\Mappy Project\flower.cpp(72,1): error C2027:  use of undefined type 'Sprite'
-C:\Users\vsjcoates\Documents\Mappy Project Updated 2018 Visual Studio 2017\Mappy Project Updated 2018 Visual Studio 2017\Mappy Project\Sprite.h(8): message :  see declaration of 'Sprite'
-C:\Users\vsjcoates\Documents\Mappy Project Updated 2018 Visual Studio 2017\Mappy Project Updated 2018 Visual Studio 2017\Mappy Project\flower.cpp(73,1): error C2027:  use of undefined type 'Sprite'
-C:\Users\vsjcoates\Documents\Mappy Project Updated 2018 Visual Studio 2017\Mappy Project Updated 2018 Visual Studio 2017\Mappy Project\Sprite.h(8): message :  see declaration of 'Sprite'
-C:\Users\vsjcoates\Documents\Mappy Project Updated 2018 Visual Studio 2017\Mappy Project Updated 2018 Visual Studio 2017\Mappy Project\flower.cpp(77,10): error C2027:  use of undefined type 'Sprite'
-  Source.cpp
-C:\Users\vsjcoates\Documents\Mappy Project Updated 2018 Visual Studio 2017\Mappy Project Updated 2018 Visual Studio 2017\Mappy Project\Sprite.h(8): message :  see declaration of 'Sprite'
-C:\Users\vsjcoates\Documents\Mappy Project Updated 2018 Visual Studio 2017\Mappy Project Updated 2018 Visual Studio 2017\Mappy Project\Sprite.h(9,1): error C2011:  'Sprite': 'class' type redefinition
-C:\Users\vsjcoates\Documents\Mappy Project Updated 2018 Visual Studio 2017\Mappy Project Updated 2018 Visual Studio 2017\Mappy Project\Sprite.h(8): message :  see declaration of 'Sprite'
-  Generating Code...
-C:\Users\vsjcoates\Documents\Mappy Project Updated 2018 Visual Studio 2017\Mappy Project Updated 2018 Visual Studio 2017\Mappy Project\Source.cpp(27,15): error C2079:  'player' uses undefined class 'Sprite'
+  Mappy Project.vcxproj -> C:\Users\vsjcoates\Documents\Mappy Project Updated 2018 Visual Studio 2017\Mappy Project Updated 2018 Visual Studio 2017\Debug\Mappy Project.exe

@@ -5,7 +5,8 @@
 #include <allegro5/allegro_ttf.h>
 #include <allegro5/allegro_audio.h>
 #include <allegro5/allegro_acodec.h>
-#include "SpriteSheet.h"
+#include "Sprite.h"
+#include "flower.h"
 #include "mappy_A5.h"
 #include <iostream>
 using namespace std;
@@ -16,14 +17,15 @@ int main(void)
 {
 	const int WIDTH = 900;
 	const int HEIGHT = 480; //original 480
+	const int NUM_flowers = 6;
 	bool keys[] = {false, false, false, false, false};
 	enum KEYS{UP, DOWN, LEFT, RIGHT, SPACE};
 	//variables
 	bool done = false;
 	bool render = false;
-	//Player Variable
+	//Player and flower Variable
 	Sprite player;
-	int score = 0;
+	flower flowers[NUM_flowers];
 
 
 
@@ -77,7 +79,7 @@ int main(void)
 	al_init_font_addon();
 	al_init_ttf_addon();
 
-	//draw the intro 
+	//draw the intro  sequeence
 	intro = al_load_bitmap("Intro.png");
 	end = al_load_bitmap("End.png");
 	al_draw_bitmap(intro, WIDTH/4, 0, 0);
@@ -86,9 +88,9 @@ int main(void)
 	al_rest(3);
 
 	player.InitSprites(WIDTH,HEIGHT);
+
 	//add the front 
 	ALLEGRO_FONT* hop = al_load_font("BunnyHopper.ttf", 50, 0);
-
 
 	int xOff = 0;
 	int yOff = 0;
@@ -111,23 +113,17 @@ int main(void)
 	player.DrawSprites(0,0);
 	al_flip_display();
 	al_clear_to_color(al_map_rgb(0,0,0));
-	//set up levels
-	bool levelOver = false;
+	
 	//start timer
 	startTime = time(NULL);
 
 	//al_play_sample(music, 1.5, 0.0, 1.0, ALLEGRO_PLAYMODE_LOOP, NULL);
+
+	// main game loop
 	while(!done)
 	{
 		currentTime = time(NULL);
 
-		//check if current level is over
-		if (levelOver)
-		{
-			startTime = 0;
-			currentTime = 0;
-			levelOver = false;	
-		}
 
 		//check if timer is over
 		if (currentTime - startTime >= 60) {
@@ -148,10 +144,17 @@ int main(void)
 			else if(keys[RIGHT])
 				player.UpdateSprites(WIDTH,HEIGHT,1);
 			
-			if (player.CollisionEndBlock()) {
+			//if (player.CollisionEndBlock()) {
 				//cout << "Next Level\n";
 				//levelOver = true;
-			}
+			//}
+
+			for (int i = 0; i < NUM_flowers; i++)
+				flowers[i].growFlower(WIDTH, HEIGHT);
+			//for (int i = 0; i < NUM_flowers; i++)
+				//flowers[i].Collision(player);
+
+
 			render = true;
 
 		}
@@ -206,7 +209,7 @@ int main(void)
 				break;
 			}
 		}
-		if(render && al_is_event_queue_empty(event_queue) && currentTime - startTime < 60)
+		if(render && al_is_event_queue_empty(event_queue) && currentTime - startTime <= 60)
 		{
 			render = false;
 
@@ -231,29 +234,36 @@ int main(void)
 			MapDrawFG(xOff,yOff, 0, 0, WIDTH, HEIGHT, 0);
 			
 			player.DrawSprites(xOff, yOff);
+			for (int i = 0; i < NUM_flowers; i++)
+				flowers[i].drawSprite();
 			//draw timer and score
-			al_draw_textf(hop, al_map_rgb(153,0,153), 20, 430, ALLEGRO_ALIGN_LEFT, "Flower Score: ", score);
+			al_draw_textf(hop, al_map_rgb(153,0,153), 20, 430, ALLEGRO_ALIGN_LEFT, "Flower Score: ", player.getScore());
 			al_draw_textf(hop, al_map_rgb(153, 0, 153), WIDTH / 2, 430, ALLEGRO_ALIGN_CENTRE, "You have 60 seconds: %d", (currentTime- startTime));
 			al_flip_display();
 			al_clear_to_color(al_map_rgb(0,0,0));
 		}
+
+		if (currentTime - startTime > 60) {
+			done = true;
+		}
 		
 	}
+
+
 	//draw the conclustion
 	al_draw_bitmap(end, WIDTH / 4, 0, 0);
-	al_draw_textf(hop, al_map_rgb(153, 0, 153), 20, 430, ALLEGRO_ALIGN_LEFT, "Final Score: ", score);
+	al_draw_textf(hop, al_map_rgb(153, 0, 153), 20, 430, ALLEGRO_ALIGN_LEFT, "Final Score: ",player.getScore());
 	al_flip_display();
 	al_clear_to_color(al_map_rgb(0, 0, 0));
 	al_rest(3);
 
+	//clear the screen and end the program
 	al_clear_to_color(al_map_rgb(0, 0, 0));
-
 	MapFreeMem();
 	al_destroy_bitmap(intro);
 	al_destroy_bitmap(end);
 	al_destroy_event_queue(event_queue);
 	al_destroy_display(display);	
-	//destroy our display object
 
 	return 0;
 }

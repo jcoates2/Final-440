@@ -21,10 +21,10 @@
     <ClCompile Include="mappy_A5.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SpriteSheet.cpp">
+    <ClCompile Include="flower.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="flower.cpp">
+    <ClCompile Include="Sprite.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -32,10 +32,10 @@
     <ClInclude Include="mappy_A5.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SpriteSheet.h">
+    <ClInclude Include="flower.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="flower.h">
+    <ClInclude Include="Sprite.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
